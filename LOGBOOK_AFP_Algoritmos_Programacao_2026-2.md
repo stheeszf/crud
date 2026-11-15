@@ -198,16 +198,10 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 **Campo 01 — Instrumento de entrada** · *sem consulta · faça primeiro*
 - Preencha **antes de tudo**, em um bloco contínuo de cerca de 15 minutos, sem internet, sem material, sem IA e sem colegas, depois de conhecer a questão-problema e a primeira amostra de dados do seu app. Depois do Campo 01 você pode consultar o que quiser.
 - **1a.** Liste pelo menos **3 objetos de conhecimento** que você acha que precisa dominar para resolver o problema. Use o vocabulário técnico da área. *Não precisa acertar tudo — o Campo 07 vai mostrar o quanto você evoluiu.*
-- 1. Laços de repetição
-2. Estruturas  de dados
-3. Operados Lógicos
 - **1b.** Liste pelo menos **3 lacunas**: o que você **não sabe** e precisa descobrir, com precisão (ruim: "não sei programar"; bom: "não sei como validar a entrada para impedir que o usuário digite texto onde espero número").
-- 1. Ainda não sei usar alguns laços de repetição com precisão, principalmente o while,  e tenho dúvidas sobre quando e como aplicar corretamente
-2. Não tenho muita dificuldade com estrtuturas de dados, mas em algumas atividades fico em dúvida sobre como iniciar a solução e qual abordagem usar
-3. Tenho dificuldade para organizar o que preciso fazer antes de começar a escrever o código, principalmente para transformar o problema em uma sequência de passos
 - **1c.** Escreva sua **hipótese inicial** em até 5 linhas: o que você acha que está causando as falhas do CRUD e por quê.
 - Faça o commit **logo ao terminar**. Depois, **não edite** o Campo 01.
-- Acredito que preciso praticar mais para saber qual estrutura usar pra organizar os dados em diferentes situações. Também preciso entender melhor os laços de repetição para conseguir aplicar corretamente durante o desenvolvimento do projeto
+
 
 **Campo 02 — Aprofundamento** · *AV Qualis · segunda 16/11, 23h59*
 - Preencha **depois do Campo 01, com pesquisa real**, e seja coerente com ele.
@@ -220,19 +214,19 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 *Grupo 1 | Prazo segunda 16/11, 23h59 | SEM CONSULTA*
 
 **1a. Objetos de conhecimento identificados (mínimo 3, com vocabulário técnico):**
-1. _…_
-2. _…_
-3. _…_
+1. _Laços de repetição_
+2. _Estruturas de dados_
+3. _Operadores Lógicos_
 4. _…_ *(opcional)*
 
 **1b. Lacunas — o que não sei e preciso descobrir (mínimo 3, com precisão técnica):**
-1. _…_
-2. _…_
-3. _…_
+1. _Ainda não sei usar alguns laços de repetição com precisão, principalmente o while,  e tenho dúvidas sobre quando e como aplicar corretamente_
+2. _Não tenho muita dificuldade com estrtuturas de dados, mas em algumas atividades fico em dúvida sobre como iniciar a solução e qual abordagem usar_
+3. _Tenho dificuldade para organizar o que preciso fazer antes de começar a escrever o código, principalmente para transformar o problema em uma sequência de passos_
 
 **1c. Hipótese inicial em até 5 linhas — com lógica da área de formação:**
 
-> _…_
+> _Acredito que preciso praticar mais para saber qual estrutura usar pra organizar os dados em diferentes situações. Também preciso entender melhor os laços de repetição para conseguir aplicar corretamente durante o desenvolvimento do projeto_
 
 ### 🧩 CAMPO 02 — Aprofundamento pós-aula
 *AV Qualis — Grupo 1 | Segunda 16/11, 23h59*
