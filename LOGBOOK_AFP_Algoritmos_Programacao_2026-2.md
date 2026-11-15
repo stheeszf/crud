@@ -23,13 +23,13 @@
 
 | Campo | Preencha |
 |---|---|
-| **Nome do estudante** | _escreva aqui_ |
-| **Curso / Módulo** | _ex.: ADS · 2º período_ |
+| **Nome do estudante** | _Sthéfhany Sousa Silva_ |
+| **Curso / Módulo** | _ex.: Eng. De Software · 2º período_ |
 | **Unidade curricular** | Algoritmos e Programação — UnDB 2026.2 |
 | **Professor** | Rondineli Seba Salomão |
-| **App-base do meu CRUD** | _ex.: um app de delivery, um app de músicas…_ |
-| **Link do meu repositório** | _https://github.com/…_ |
-| **Dupla de revisão (Campo 05)** | _nome do colega cujo CRUD vou revisar / que revisa o meu_ |
+| **App-base do meu CRUD** | _ex.: Strava, app de atividades físicas_ |
+| **Link do meu repositório** | _https://github.com/stheeszf/crud_ |
+| **Dupla de revisão (Campo 05)** | _Lícia Cruz Coimbra_ |
 | **Função neste ciclo** | _Autor do meu CRUD · Revisor do CRUD de um colega_ |
 
 ---
@@ -197,7 +197,7 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 **Campo 01 — Instrumento de entrada** · *sem consulta · faça primeiro*
 - Preencha **antes de tudo**, em um bloco contínuo de cerca de 15 minutos, sem internet, sem material, sem IA e sem colegas, depois de conhecer a questão-problema e a primeira amostra de dados do seu app. Depois do Campo 01 você pode consultar o que quiser.
-- **1a.** Liste pelo menos **3 objetos de conhecimento** que você acha que precisa dominar para resolver o problema. Use o vocabulário técnico da área. *Não precisa acertar tudo — o Campo 07 vai mostrar o quanto você evoluiu.*
+- **1a.** Liste pelo menos **3 objetos de conhecimento** que você acha que precisa dominar para resolver o problema. Use o vocabulário técnico da área. *Não precisa acertar tudo — o Campo 07 vai mostrar o quanto você evoluiu.* 
 - **1b.** Liste pelo menos **3 lacunas**: o que você **não sabe** e precisa descobrir, com precisão (ruim: "não sei programar"; bom: "não sei como validar a entrada para impedir que o usuário digite texto onde espero número").
 - **1c.** Escreva sua **hipótese inicial** em até 5 linhas: o que você acha que está causando as falhas do CRUD e por quê.
 - Faça o commit **logo ao terminar**. Depois, **não edite** o Campo 01.
@@ -213,19 +213,19 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 *Grupo 1 | Prazo segunda 16/11, 23h59 | SEM CONSULTA*
 
 **1a. Objetos de conhecimento identificados (mínimo 3, com vocabulário técnico):**
-1. _…_
-2. _…_
-3. _…_
+1. _Laços de repetição_
+2. _Estrtuturas de dados_
+3. _Operadores Lógicos_
 4. _…_ *(opcional)*
 
 **1b. Lacunas — o que não sei e preciso descobrir (mínimo 3, com precisão técnica):**
-1. _…_
-2. _…_
-3. _…_
+1. _Ainda não sei usar alguns laços de repetição com precisão, principalmente o while,  e tenho dúvidas sobre quando e como aplicar corretamente_
+2. _Não tenho muita dificuldade com estrtuturas de dados, mas em algumas atividades fico em dúvida sobre como iniciar a solução e qual abordagem usar_
+3. _Tenho dificuldade para identificar qual estrutura de programação utilizar em determinada situação, principalmente para decidir qual abordagem é mais adequada para resolver um problema_
 
 **1c. Hipótese inicial em até 5 linhas — com lógica da área de formação:**
 
-> _…_
+> _Acredito que preciso praticar mais para saber qual estrutura usar pra organizar os dados em diferentes situações. Também preciso entender melhor os laços de repetição para conseguir aplicar corretamente durante o desenvolvimento do projeto_
 
 ### 🧩 CAMPO 02 — Aprofundamento pós-aula
 *AV Qualis — Grupo 1 | Segunda 16/11, 23h59*
@@ -234,20 +234,20 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 **2a. Aprofundamento dos objetos de conhecimento (mínimo 2 referências com síntese da contribuição para a solução):**
 
-- **Referência 1:** _…_ — **Contribuição:** _…_
-- **Referência 2:** _…_ — **Contribuição:** _…_
+- **Referência 1:** _Documentação oficial do Python, A Referência da Linguagem Python, seção 8.2, "A instrução while"(https://docs.python.org/pt-br/dev/reference/compound_stmts.html#while)_ — **Contribuição:** _ Eu entendi que o while testa uma expressão repetidamente e executa o bloco do código enquanto a condição for verdadeira, caso contrário, se a condição deixar de ser verdadeira, o laço é encerrado, e o break também termina o laço sem executar o else. No meu CRUD do Strava, o menu principal usa while True então a condição nunca fica falsa, o laço só termina quando o usuário escohe a opção 5._
+- **Referência 2:** _Documentação Oficial do Python, Tutorial, capítulo "Estruturas de Dados" (https://docs.python.org/pt-br/3/tutorial/datastructures.html)_ — **Contribuição:** _Entendi que as listas permitem armazenar vários valores em uma sequência, e que seus elementos podem ser acessados e modificados, por exemplo, para adicionar um novo item bastar usar append. Também aprendi que os dicionários organizam as informações em pares de chave e valor, facilitando o acesso a algum dado pela a chave. No meu CRUD do Strava, eu guardei as atividades em variáveis soltas (atividade, tipo, distância, duração) e uso a variável cadastrada para analisar se ela existe, e isso me limita a uma atividade por vez, mas após a pesquisa eu entendi que uma lista de dicionários, em que cada uma dessas atividades seja um dicionário com nome, tipo, distância e duração, permitiria cadastrar várias atividades e listar, editar ou excluir cada uma delas. _
 
 **2b. Hipótese revisada — o que mudou em relação ao Campo 01 e por quê:**
 
-> _…_
+> _No Campo 01, eu achava que precisava praticar mais para escolher a estrutura de dados certa e entender melhor os laços de repetição. Depois de pesquisar, eu entendi que o while serve quando não sei quantas vezes um bloco vai se repetir e que o break encerra um laço se a condição é sempre verdadeira, como no menu do meu CRUD. Também percebi que guardar cada atividade em um dicionário, em vez de variáveis soltas, facilitaria o cadastro no meu CRUD. Continua em aberto saber aplicar listas e dicionários na prática e planejar a estrutura do código antes de escrever, porque nem sempre o resultado no terminal sai como eu espero._
 
 **2c. Dimensionamento inicial de recursos (recurso, quantidade estimada, justificativa técnica — mínimo 3 itens):**
 
 | RECURSO / MATERIAL / INSUMO | QUANTIDADE ESTIMADA | JUSTIFICATIVA TÉCNICA |
 |---|---|---|
-| _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ |
+| _Documentação Oficial do Python_ | _3 consultas (seções de `while`, listas e dicionários), vou voltar a elas quando surgir dúvida_ | _Revisar os conceitos que apareceram como lacuna no Campo 01 e conferir a sintaxe correta durante o desenvolvimento do CRUD_ |
+| _Praticar no próprio projeto_ |  _1 a 2 horas por semana_ | _Testar `while`, listas e dicionários no CRUD, observar o resultado no terminal e corrigir os erros encontrados_ |
+| _Exercícios de Programação_ | _6 exercícios (2 de laços de repetição, 2 de listas e 2 de dicionários)_ | _Praticar a escolha da estrutura adequada antes de começar a escrever o código, que era uma das minhas lacunas_ |
 | _…_ | _…_ | _…_ |
 
 #### Registro do Ciclo 02 — 19/08
