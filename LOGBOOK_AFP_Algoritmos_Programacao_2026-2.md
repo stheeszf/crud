@@ -202,6 +202,7 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 - **1c.** Escreva sua **hipótese inicial** em até 5 linhas: o que você acha que está causando as falhas do CRUD e por quê.
 - Faça o commit **logo ao terminar**. Depois, **não edite** o Campo 01.
 
+
 **Campo 02 — Aprofundamento** · *AV Qualis · segunda 16/11, 23h59*
 - Preencha **depois do Campo 01, com pesquisa real**, e seja coerente com ele.
 - **2a.** Pelo menos **2 referências** (livro, documentação, vídeo, artigo), cada uma com a **contribuição** concreta para a sua solução. Não basta listar o título.
@@ -214,7 +215,7 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 **1a. Objetos de conhecimento identificados (mínimo 3, com vocabulário técnico):**
 1. _Laços de repetição_
-2. _Estrtuturas de dados_
+2. _Estruturas de dados_
 3. _Operadores Lógicos_
 4. _…_ *(opcional)*
 
