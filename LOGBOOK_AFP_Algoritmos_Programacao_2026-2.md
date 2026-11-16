@@ -25,9 +25,9 @@
 |---|---|
 | **Nome do estudante** | _Sthéfhany Sousa Silva_ |
 | **Curso / Módulo** | _ex.: Eng. De Software · 2º período_ |
-| **Unidade curricular** | Algoritmos e Programação — UnDB 2026.2 |
-| **Professor** | Rondineli Seba Salomão |
-| **App-base do meu CRUD** | _ex.: Strava, app de atividades físicas_ |
+| **Unidade curricular** | _Algoritmos e Programação — UnDB 2026.2_ |
+| **Professor** | _Rondineli Seba Salomão_ |
+| **App-base do meu CRUD** | _Strava, app de atividades físicas_ |
 | **Link do meu repositório** | _https://github.com/stheeszf/crud_ |
 | **Dupla de revisão (Campo 05)** | _Lícia Cruz Coimbra_ |
 | **Função neste ciclo** | _Autor do meu CRUD · Revisor do CRUD de um colega_ |
@@ -182,13 +182,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 01 — 12/08
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** _Preparar o ambiente de trabalho (repositório no GitHub e VS Code) e escolher o app-base do CRUD com os dados que ele vai guardar._
+2. **O que implementei (commits / arquivos / links):** _Criei o repositório stheeszf/crud no GitHub, configurei o VS Code e escolhi o Strava como app-base. Defini os dados de cada atividade: nome, tipo, distância (km) e duração (minutos). Commit inicial: 9176310._
+3. **Objeto(s) de conhecimento mobilizado(s):** _O que eu já sabia: o básico de lógica de programação, com experiência prévia em Portugol. O que era novo: usar o VS Code (que eu ainda não tinha usado), criar um repositório no GitHub, configurar o ambiente e usar o Git para fazer commits. Também mobilizei a modelagem dos dados do CRUD (quais variáveis e tipos cada atividade precisa guardar)._
+4. **Desvio ou erro encontrado + causa técnica:** _Não tive problemas de instalação ou configuração neste ciclo._
+5. **Decisão de ajuste + fonte:** _Decidi usar o Strava como app-base, com uma atividade por vez e os campos nome, tipo, distância e duração, por serem simples de representar com variáveis. Fonte: orientações do Ciclo 01 deste logbook._
+6. **Feedback recebido e o que mudei:** _Não recebi feedback formal neste ciclo._
+7. **Próximo passo:** _Implementar o menu principal e as opções de cadastrar e listar atividades.1._ 
 
 ## 🟢 CICLO 02 — 19/08 — Variáveis, tipos de dados e entrada/saída
 
@@ -252,13 +252,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 | _…_ | _…_ | _…_ |
 
 #### Registro do Ciclo 02 — 19/08
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** _Fazer o programa receber, guardar e exibir os dados de uma atividade do Strava (nome, tipo, distância e duração) a partir do que o usuário digita._
+2. **O que implementei (commits / arquivos / links):** _Implementei as opções 1 (cadastrar) e 2 (listar) do menu principal, dentro de um laço `while True`. Usei variáveis simples para guardar os dados e uma variável booleana `cadastrada` para controlar se já existe uma atividade. Repositório: stheeszf/crud, commit c9962a9._
+3. **Objeto(s) de conhecimento mobilizado(s):** _Variáveis e tipos de dados (`str`, `float`, `int`, `bool`), entrada e saída com `input` e `print`, conversão de tipos com `float()` e `int()`, estrutura condicional (`if/elif/else`) e estrutura de repetição (`while` com `break`)._
+4. **Desvio ou erro encontrado + causa técnica:** _Tive erro na estrutura do `while`: eu inicializava as variáveis (como `cadastrada = False`) dentro do laço. Como o corpo do `while` roda do começo a cada volta, elas eram redefinidas a cada repetição do menu, e o programa "esquecia" a atividade cadastrada, dizendo que não havia nenhuma ao listar._
+5. **Decisão de ajuste + fonte:** _Movi a declaração das variáveis para antes do `while True`, de modo que sejam criadas uma única vez e só mudem quando o usuário cadastra, edita ou exclui. Fonte: [aula sobre estruturas de repetição / documentação do Python sobre `while`].
+6. **Feedback recebido e o que mudou:** Não recebi feedback formal neste ciclo; a revisão do código foi feita por conta própria.
+7. **Próximo passo:** Implementar as opções de editar e excluir (com confirmação) e tratar entradas inválidas com `try/except`._
 
 ## 🟢 CICLO 03 — 26/08 — Operadores, fluxogramas e paradigmas
 
@@ -271,13 +271,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 03 — 26/08
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+11. **Desafio do ciclo (em 1 frase):** _Permitir alterar e remover a atividade cadastrada mantendo o estado do programa consistente._
+2. **O que implementei (commits / arquivos / links):** _Implementei as opções 3 (editar) e 4 (excluir) do menu. Na edição, o programa pede os novos valores e reatribui as variáveis. Na exclusão, pede confirmação ("Sim"/"Não") e, se confirmada, zera as variáveis e volta `cadastrada` para `False`. Repositório: stheeszf/crud, commit c9962a9._
+3. **Objeto(s) de conhecimento mobilizado(s):** _Reatribuição de variáveis, estrutura condicional aninhada (`if/else` dentro de `elif`), uso de variável booleana como controle de estado, comparação de strings e conversão de tipos._
+4. **Desvio ou erro encontrado + causa técnica:** _Limitação que identifiquei: a confirmação compara com `"Sim"` exatamente, então "sim" ou "SIM" cancela a exclusão sem o usuário perceber, porque a comparação de strings diferencia maiúsculas de minúsculas._
+5. **Decisão de ajuste + fonte:** _Ajuste planejado: usar `.lower()` na resposta antes de comparar, para ignorar maiúsculas e minúsculas. Fonte: decisão própria, sem consulta externa._
+6. **Feedback recebido e o que mudei:** _Não recebi feedback formal neste ciclo._
+7. **Próximo passo:** _Revisar o fluxo completo do menu e tratar entradas inválidas._ 
 
 ## 🟢 CICLO 04 — 02/09 — Estruturas condicionais: `if`, `elif`, `else`
 
@@ -292,13 +292,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 04 — 02/09
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** _Finalizar o CRUD, garantindo que o menu funcione do início ao fim, com saída controlada e mensagens claras para o usuário._
+2. **O que implementei (commits / arquivos / links):** _Implementei a opção 5 (sair) com `break`, o `else` final para opções inválidas e as mensagens de retorno de cada situação (por exemplo, "Nenhuma atividade cadastrada"). Versão final do código em stheeszf/crud, commit 7ea142b._
+3. **Objeto(s) de conhecimento mobilizado(s):** _Estrutura de repetição com `while` e `break`, cadeia `if/elif/else` para tratar opções inválidas e teste manual do fluxo completo do programa._
+4. **Desvio ou erro encontrado + causa técnica:** _Ao testar o programa inteiro, identifiquei que digitar texto em distância ou duração gera `ValueError`, porque `float()` e `int()` não convertem texto. Também notei que o prompt "Nome da atividade" estava sem os dois-pontos e o espaço, diferente dos demais._
+5. **Decisão de ajuste + fonte:** _Decidi manter o CRUD com uma única atividade nesta etapa e deixar para a próxima a evolução para várias atividades, guardadas em uma lista de dicionários, além do tratamento de entradas inválidas com `try/except`. Fonte: Documentação oficial do Python, Tutorial, capítulo "Estruturas de Dados", partes sobre listas e dicionários (https://docs.python.org/pt-br/3/tutorial/datastructures.html)._
+6. **Feedback recebido e o que mudou:** _Não recebi feedback formal neste ciclo._
+7. **Próximo passo:** _Evoluir o CRUD para guardar várias atividades (listas) e organizar o código em funções._
 
 ---
 
