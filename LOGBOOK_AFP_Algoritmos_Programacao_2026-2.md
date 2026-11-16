@@ -24,7 +24,7 @@
 | Campo | Preencha |
 |---|---|
 | **Nome do estudante** | _Sthéfhany Sousa Silva_ |
-| **Curso / Módulo** | _ex.: Eng. De Software · 2º período_ |
+| **Curso / Módulo** | _Eng. De Software · 2º período_ |
 | **Unidade curricular** | _Algoritmos e Programação — UnDB 2026.2_ |
 | **Professor** | _Rondineli Seba Salomão_ |
 | **App-base do meu CRUD** | _Strava, app de atividades físicas_ |
