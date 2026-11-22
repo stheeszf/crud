@@ -346,8 +346,8 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 | | |
 |---|---|
-| **Nome do estudante** | _…_ |
-| **Data de realização** | _…_ |
+| **Nome do estudante** | Sthéfhany Sousa Silva |
+| **Data de realização** | 20-21/11 |
 | **Unidade curricular** | Algoritmos e Programação |
 | **Professor(a)** | Rondineli Seba Salomão |
 
@@ -391,17 +391,17 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 *AV Qualis — Grupo 2 | Sábado 21/11, 23h59*
 
 **3a. O que descobri que mudou minha compreensão do problema (mínimo 2 achados, com objeto de conhecimento associado):**
-1. _…_ — *Objeto de conhecimento:* _…_
-2. _…_ — *Objeto de conhecimento:* _…_
+1. _…_ — *Objeto de conhecimento:* 1. Percebi que declarar as variáveis dentro do `while` as reinicializa a cada volta do menu, e por isso o programa "esquecia" a atividade cadastrada. Passei a declará-las antes do laço.
+2. _…_ — *Objeto de conhecimento:* Percebi que variáveis simples (`atividade`, `tipo`, `distancia`, `duracao`) guardam uma única atividade, e que guardar várias exige uma estrutura que cresça. Ao passar para listas, entendi que cada dado fica numa lista própria e que a posição `i` de todas as listas deve corresponder à mesma atividade; por isso todos os `append` acontecem juntos no cadastro, e a edição e a exclusão usam sempre o mesmo índice `n - 1`. 
 3. _…_ *(opcional)*
 
 **3b. Desvio em relação ao Campo 02 (ao menos 1 — causa técnica):**
-- **Desvio:** _…_
-- **Causa técnica:** _…_
+- **Desvio:** No Campo 02, planejei guardar cada atividade como um dicionário dentro de uma lista. Na implementação, usei quatro listas paralelas (`nomes`, `tipos`, `distancias`, `duracoes`) mais a lista `ativa`, sem dicionários.
+- **Causa técnica:** O acesso por chave (`atividade["nome"]`) e o uso de uma lista de dicionários ainda não estavam consolidados para mim, e eu não conseguiria explicar cada linha do código. Com listas paralelas o acesso é só por índice (`nomes[i]`), uma estrutura que consegui testar e justificar. O custo é que as quatro listas dependem de ficar alinhadas pela posição, o que me levou à exclusão lógica.
 
 **3c. Decisão de ajuste (ao menos 1) com justificativa e fonte:**
-- **Decisão:** _…_
-- **Fonte:** _…_
+- **Decisão:** Tratar a exclusão como lógica, com uma lista `ativa` que marca `False` na atividade excluída, em vez de remover os itens das listas.
+- **Fonte:**  Tutorial do Python, capítulo "Estruturas de Dados" (https://docs.python.org/pt-br/3/tutorial/datastructures.html) e testes no meu computador.
 
 **Objeto de conhecimento mobilizado nesta decisão:** _…_
 
@@ -410,23 +410,24 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 > **Obrigatório e avaliado. Print sem análise crítica = devolução imediata. Reproduzir a IA sem questionamento = reprovado.**
 
-**4a. Ferramenta:** _…_  **Data:** _DD/MM/AAAA_
+**4a. Ferramenta:** Claude  **Data:** 21/11/2026
 
 **4b. Pergunta formulada (transcrita integralmente):**
 
-> _…_
+ >No meu CRUD do Strava, se o usuário digitar texto em vez de número em distância ou duração, o programa encerra com ValueError. Como posso evitar isso usando apenas while, if e input?
+ >No meu CRUD do Strava, a busca só encontra a atividade se eu digitar exatamente igual ao nome ou ao tipo. Como posso fazer a busca ignorar maiúsculas e minúsculas?
 
 **4c. Resposta da IA (resumida em parágrafo):**
 
-> _…_
+> A IA propôs uma nova versão do CRUD que armazena várias atividades em listas paralelas e dispensa os recursos que eu ainda não domino (`for`, `pop`, dicionários). A listagem e a busca passaram a percorrer as listas com `while` e um contador de posição, e a exclusão foi tratada como lógica: uma lista auxiliar `ativa` registra com `False` as atividades excluídas, preservando o alinhamento entre as listas. A IA também testou o código com entradas válidas e inválidas.
 
 **4d. O que aceitei — com referência ao objeto de conhecimento do componente:**
 
-> _…_
+> Aceitei o uso de listas para armazenar várias atividades, a varredura com `while` e contador e o uso de `and`/`or` nas validações.
 
 **4e. O que questionei ou descartei — com argumento técnico ou fonte:**
 
-> _…_
+> Descartei a primeira versão proposta, que empregava dicionários, `enumerate`, `.lower()`, `pop` e `for`, por ainda não dominar esses recursos e não conseguir justificar cada linha. Na versão adotada, identifiquei duas limitações. A primeira: [descreva o resultado do seu teste, por exemplo "ao digitar texto em distância, o programa encerrou com ValueError"], pois `float()` não converte texto e o código não trata a exceção. A segunda: a exclusão lógica não remove os dados das listas, então elas só crescem e o número da atividade excluída não é reaproveitado; aceitei esse custo para não usar `pop`. Fonte: testes executados no meu computador e Documentação oficial do Python.
 
 ## 🟠 CICLO 05 — 09/09 — Condicionais aninhadas e operadores lógicos
 
@@ -441,13 +442,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 05 — 09/09
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Impedir que dados inválidos entrem no CRUD e que edição e exclusão usem um número de atividade que não existe.
+2. **O que implementei (commits / arquivos / links):** Validação no cadastro combinando condições com `or` (nome vazio, tipo vazio, distância ou duração menores ou iguais a zero) e checagem do número da atividade com `and` (`n >= 1 and n <= len(nomes)`), com condicionais aninhadas nas opções 4 e 5. Versão consolidada em 20/11 no arquivo crud_strava_simples.py, repositório stheeszf/crud, commit a1b2c3d
+3. **Objeto(s) de conhecimento mobilizado(s):** Condicionais aninhadas, operadores lógicos (`and`, `or`) e operadores de comparação.
+4. **Desvio ou erro encontrado + causa técnica:** Digitar texto em distância ou duração gera `ValueError`, porque `float()` e `int()` não convertem texto, e a validação com `or` só roda depois da conversão.]
+5. **Decisão de ajuste + fonte:** Usei `or` no cadastro porque basta uma condição inválida para recusar os dados, e `and` na checagem do número porque ele precisa satisfazer as duas condições ao mesmo tempo. Fonte: aula de Condicionais aninhadas e operadores lógicos e Documentação oficial do Python.
+6. **Feedback recebido e o que mudei:** Não recebi feedback formal neste ciclo.
+7. **Próximo passo:** Percorrer os dados cadastrados com laços para listar e buscar.
 
 ## 🟠 CICLO 06 — 30/09 — Devolutiva da P1 + repetição: `for`, `while`, `break`, `continue`
 
@@ -461,13 +462,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 06 — 30/09
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido (inclui devolutiva da P1) e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Percorrer todas as atividades cadastradas para listar e buscar.
+2. **O que implementei (commits / arquivos / links):** Laço `while` com contador (`i = 0`, `while i < len(nomes)`, `i = i + 1`) nas opções de listar e buscar, além do `while True` com `break` do menu principal. Não usei `for` nem `continue`. Consolidado em 20/11, repositório stheeszf/crud, commit a1b2c3d
+3. **Objeto(s) de conhecimento mobilizado(s):** Estrutura de repetição `while`, contador, condição de parada e `break`.
+4. **Desvio ou erro encontrado + causa técnica:** Ponto de atenção: se o `i = i + 1` ficasse dentro do `if`, o contador não avançaria nas atividades excluídas e o laço ficaria infinito, porque a condição `i < len(nomes)` nunca deixaria de ser verdadeira.
+5. **Decisão de ajuste + fonte:** Usei `while` com contador em vez de `for` porque já usava `while` no menu e o contador me dá controle direto da posição `i`. Fonte: Documentação oficial do Python, A Referência da Linguagem Python, seção 8.2 "A instrução `while`" (https://docs.python.org/3/reference/compound_stmts.html#the-while-statement).
+6. **Feedback recebido (inclui devolutiva da P1) e o que mudei:** Não recebi outro feedback formal e nem a P1.
+7. **Próximo passo:** Guardar várias atividades em listas.
 
 ## 🟠 CICLO 07 — 07/10 — Listas: armazenamento e iteração
 
@@ -481,13 +482,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 07 — 07/10
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Guardar várias atividades ao mesmo tempo, em vez de apenas uma.
+2. **O que implementei (commits / arquivos / links):** Quatro listas paralelas (`nomes`, `tipos`, `distancias`, `duracoes`), em que a posição `i` de todas pertence à mesma atividade, e uma quinta lista `ativa` para marcar o que foi excluído. Consolidado em 20/11, repositório stheeszf/crud, commit a1b2c3d
+3. **Objeto(s) de conhecimento mobilizado(s):** Listas, `append`, acesso e atribuição por índice, `len` e iteração com `while`.
+4. **Desvio ou erro encontrado + causa técnica:** Acessar uma posição inexistente gera `IndexError`, por isso valido `n >= 1 and n <= len(nomes)` antes de usar `n - 1` como índice.
+5. **Decisão de ajuste + fonte:** Em vez de remover itens das listas, fiz exclusão lógica: `ativa[n - 1]` passa de `True` para `False` e as demais opções ignoram esse item. Assim as listas paralelas não ficam desalinhadas. Consequência: o número da atividade excluída não é reaproveitado. Fonte: decisão própria; uso das listas conforme o Tutorial do Python, capítulo "Estruturas de Dados" (https://docs.python.org/pt-br/3/tutorial/datastructures.html).
+6. **Feedback recebido e o que mudei:** Não recebi feedback formal neste ciclo.
+7. **Próximo passo:** Implementar a busca por nome ou tipo e avaliar dicionários.
 
 ## 🟠 CICLO 08 — 14/10 — Busca/consulta e introdução a dicionários e matrizes
 
@@ -502,13 +503,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 08 — 14/10
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Localizar atividades já cadastradas pelo nome ou pelo tipo.
+2. **O que implementei (commits / arquivos / links):** Opção 3 (buscar), que percorre as listas com `while`, ignora as atividades excluídas e compara o termo digitado com o nome e o tipo (`termo == nomes[i] or termo == tipos[i]`), usando a variável `achou` para avisar quando nada é encontrado. Consolidado em 20/11, repositório stheeszf/crud, commit a1b2c3d
+3. **Objeto(s) de conhecimento mobilizado(s):** Busca sequencial, comparação de strings, variável booleana de controle e listas paralelas. Não implementei dicionários.
+4. **Desvio ou erro encontrado + causa técnica:** A busca por "corrida" não encontra "Corrida". A causa é que a comparação `==` entre strings diferencia maiúsculas de minúsculas, então só acha o texto idêntico.
+5. **Decisão de ajuste + fonte:** Mantive listas paralelas em vez de dicionários, por ainda não dominar essa estrutura, e deixei a busca sem ignorar maiúsculas. Fonte: "Estruturas de Dados" (https://docs.python.org/pt-br/3/tutorial/datastructures.html).
+6. **Feedback recebido e o que mudei:** Não recebi feedback formal neste ciclo.
+7. **Próximo passo:** Estudar dicionários para guardar cada atividade como um único item.
 
 ---
 
