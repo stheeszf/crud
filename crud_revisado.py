@@ -1,4 +1,4 @@
-print("STRAVA")
+# Sistema para registro de Atividades Físicas
 
 # uma lista para cada dado; a posição i de cada lista pertence à mesma atividade
 nomes = []
