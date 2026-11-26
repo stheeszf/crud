@@ -547,7 +547,7 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 #### Registro do Ciclo 09 — 21/10
 1. **Desafio do ciclo (em 1 frase):** Completar o CRUD, permitindo atualizar e excluir uma atividade escolhida pelo número sem quebrar as listas nem desalinhar os dados.
-2. **O que implementei (commits / arquivos / links):** Opções 4 (editar) e 5 (excluir) do menu, com validação do número (`n >= 1 and n <= len(nomes)`), verificação de que a atividade não foi excluída (`ativa[n - 1] == True`) e confirmação "Sim/Não" antes de excluir. Arquivo crud_strava_simples.py, repositório stheeszf/crud, commit 11a2ec0
+2. **O que implementei (commits / arquivos / links):** Opções 4 (editar) e 5 (excluir) do menu, com validação do número (`n >= 1 and n <= len(nomes)`), verificação de que a atividade não foi excluída (`ativa[n - 1] == True`) e confirmação "Sim/Não" antes de excluir. Arquivo refatoraçãodocrud.py, repositório stheeszf/crud, commit 99918b8
 3. **Objeto(s) de conhecimento mobilizado(s):** Listas (acesso e atribuição por índice), condicionais aninhadas, operadores lógicos e variável booleana de controle.
 4. **Desvio ou erro encontrado + causa técnica:** Atualizar ou excluir uma atividade inexistente geraria `IndexError`, por isso valido o número antes de usar `n - 1` como índice. Remover itens das listas durante a repetição faria itens serem pulados, porque o tamanho da lista muda e a exclusão lógica evita isso, já que as listas não encolhem.
 5. **Decisão de ajuste + fonte:** Excluir marcando `ativa[n - 1] = False`, em vez de remover os itens, para manter as quatro listas alinhadas. Fonte Tutorial do Python, capítulo "Estruturas de Dados" (https://docs.python.org/pt-br/3/tutorial/datastructures.html).
