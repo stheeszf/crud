@@ -622,13 +622,15 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 10 — 28/10
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Refatorar o CRUD de atividades do STRAVA em funções coesas (cadastrar, listar, buscar, alterar, excluir e menu), mantendo a consistência das listas paralelas e da exclusão lógica.
+2. **O que implementei (commits / arquivos / links):** Implementação e modularização das funções cadastrar(), listar(), buscar(), alterar(), excluir() e menu() no arquivo principal do projeto STRAVA (crud.py / crudteste.py), com registro de commits e atualização do LOGBOOK_AFP_Algoritmos_Programac no repositório Git/GitHub.
+3. **Objeto(s) de conhecimento mobilizado(s):** Modularização com funções em Python, passagem de listas mutáveis por referência, escopo local e global, tratamento de exceções (ValueError), estruturas condicionais e de repetição (while), e exclusão lógica em listas paralelas.
+4. **Desvio ou erro encontrado + causa técnica:** Variável fora de escopo: tentar acessar variáveis locais criadas dentro de cadastrar() ou alterar() (como distancia ou confirmacao) fora da função causava NameError, pois o escopo local é encerrado ao fim da chamada.
+Função sem return: quando uma validação ou ValueError ocorre no meio da função e não há return antecipado (ou quando uma função não devolve um status/valor esperado a quem chama), o fluxo pode seguir para instruções inválidas ou retornar None implicitamente.
+Parâmetro na ordem errada: inverter a ordem dos argumentos na chamada de uma função (por exemplo, trocar nomes e tipos ou passar argumentos trocados) faz os dados irem para a lista errada sem disparar erro de sintaxe, gerando bug lógico silencioso.
+5. **Decisão de ajuste + fonte:** Padronizar a assinatura das funções que operam sobre o registro completo na ordem (nomes, tipos, distancias, duracoes, ativa), restringir excluir(nomes, ativa) aos parâmetros necessários e usar return antecipado após mensagens de erro de entrada (ValueError). Fonte: documentação oficial do Python (definição de funções, escopo e return) e anotações da disciplina de Lógica de Programação e Algoritmos.
+6. **Feedback recebido e o que mudei:** Não recebi feedback porém eu mantive a estrutura modular acordada para o ciclo e padronizei as validações/mensagens de retorno de entrada inválida para deixar o fluxo mais previsível.
+7. **Próximo passo:** Validar todos os cenários de borda em crudteste.py (entrada não numérica, índice inexistente, item já excluído e busca sem resultados) e avançar para o próximo ciclo da disciplina
 
 ## 🔵 CICLO 11 — 04/11 — Recursividade
 
@@ -644,35 +646,35 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 11 — 04/11
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Aplicar recursividade de forma controlada — definindo caso base explícito, chamada recursiva com redução de estado e acompanhamento da pilha de execução — sem gerar RecursionError ou loop infinito no fluxo de consulta/varredura do CRUD STRAVA.
+2. **O que implementei (commits / arquivos / links):** Implementação de rotina recursiva de varredura/busca ou exibição em crud.py / crudteste.py (com caso base em índice/lista vazia e avanço de índice), acompanhada de registro de commit e atualização do LOGBOOK_AFP_Algoritmos_Programac no repositório Git/GitHub.
+3. **Objeto(s) de conhecimento mobilizado(s):** Recursividade (caso base, passo recursivo e convergência), pilha de chamadas (call stack), ativação de frames locais em Python, limite de recursão (RecursionError) e comparação com iteração (while).
+4. **Desvio ou erro encontrado + causa técnica:** Ausência ou condição incorreta do caso base (por exemplo, esquecer de avançar o índice ou não parar quando i == len(nomes)), o que faz novos frames se acumularem na pilha de execução até estourar o limite de recursão (RecursionError), ou ainda fazer chamada recursiva sem tratar itens marcados com ativa[i] == False.
+5. **Decisão de ajuste + fonte:** Garantir sempre um caso base explícito de parada (i >= len(nomes) ou lista vazia), reduzir o problema a cada chamada (i + 1) e manter o laço iterativo while onde a leitura sequencial simples dispensa profundidade extra de pilha. Fonte: documentação oficial do Python e material da disciplina de Lógica de Programação e Algoritmos.
+6. **Feedback recebido e o que mudei:** Não recebi feedback mas ajustei a ordem das verificações e documentei o empilhamento/desempilhamento na pilha de execução.
+7. **Próximo passo:** Cobrir o comportamento recursivo em crudteste.py com listas vazias, apenas registros inativos (ativa == False) e entradas maiores, e seguir para a refatoração de qualidade do Ciclo 12.
 
 ### 🧩 CAMPO 06 — Próximos passos para a defesa
 *AV Qualis — Grupo 3 | Individual | Quinta 26/11, 23h59*
 
 **6a. Decisão técnica que defendo com plena autonomia — o que aprendi que é exclusivamente meu e não consigo transferir para nenhum colega:**
 
-> _…_
+> Decidi manter as listas paralelas (nomes, tipos, distancias, duracoes, ativa) com exclusão lógica por flag booleana (ativa[indice] = False) em vez de usar pop()/remove() e reorganizar índices a cada exclusão, definindo explicitamente o caso base antes do passo recursivo quando uso recursão. Essa escolha nasceu da minha própria análise de como os índices se desalinhariam durante edições e exclusões e de como o estado de cada frame evolui na pilha de execução; é uma compreensão individual construída na prática do meu código e dos meus testes.
 
 **6b. Lacuna técnica e plano de ação para saná-la:**
 
-- **Lacuna:** _…_
-- **Plano de ação (passos e datas):** _…_
+- **Lacuna:** Maior fluência para decidir rapidamente quando uma operação ganha clareza com recursão (como estruturas hierárquicas ou árvores) versus quando uma estrutura iterativa (while/for) é mais segura e econômica em memória de pilha em Python.
+- **Plano de ação (passos e datas):** 26/11. Consolidar a síntese no Campo 06 para o fechamento da AV Qualis. 
 
 **6c. Pergunta que a banca pode fazer — com resposta fundamentada (mínimo 5 linhas):**
 
-- **Pergunta:** _…_
+- **Pergunta:** Pergunta: Se o CRUD STRAVA crescer para centenas de registros e você precisar de uma função recursiva que conte ou busque atividades ativas, qual risco técnico existe na pilha de execução do Python e como você avalia se vale manter a abordagem recursiva ou refatorá-la?
 - **Resposta:**
 
-> _…_
+> Em Python, cada chamada recursiva aloca um novo frame na pilha de execução contendo variáveis locais e o ponto de retorno, até o limite padrão de recursão (em torno de 1000 chamadas), o que pode gerar RecursionError ou maior consumo de memória se o caso base falhar ou se a profundidade crescer. Para avaliar a solução, verifico primeiro se o caso base é alcançado em um número finito de passos (i >= len(nomes) com i + 1) e se a lógica está correta para registros com ativa[i] == True. Em listas lineares simples como as do STRAVA, a abordagem iterativa costuma ser mais direta e previsível em uso de pilha, enquanto a recursão se justifica quando o problema é naturalmente recursivo ou quando a clareza do caso base compensa o custo do frame. Assim, a decisão final combina correção do caso base, legibilidade e previsibilidade da pilha sob carga maior.
 
-**Objeto de conhecimento mobilizado:** _…_
-**Fonte:** _…_
+**Objeto de conhecimento mobilizado:** Recursividade (caso base, passo recursivo e convergência), pilha de execução (call stack), RecursionError e avaliação comparativa entre recursão e iteração.F
+**Fonte:** Documentação oficial do Python e materiais da disciplina de Lógica de Programação e Algoritmos.
 
 ## 🔵 CICLO 12 — 11/11 — Refatoração e qualidade de código
 
@@ -690,58 +692,58 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 12 — 11/11
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Refatorar o código para eliminar duplicações, melhorar nomes e legibilidade, reduzir trechos longos ou confusos e garantir resistência a entradas inválidas, vazias e lotes com defeito.
+2. **O que implementei (commits / arquivos / links):** Refatoração de trechos duplicados de leitura/validação numérica e checagem de índice/status ativo em crud.py, ampliação de cenários de teste em crudteste.py e registro de commits e atualização do LOGBOOK no Git/GitHub.
+3. **Objeto(s) de conhecimento mobilizado(s):** Refatoração de código, coesão e legibilidade, validação de entrada e tratamento de exceções (ValueError), testes de caixa-preta/casos de borda (valores mínimos, limites, vazios e lotes defeituosos) e revisão por pares.
+4. **Desvio ou erro encontrado + causa técnica:** Repetição de blocos de leitura (float/int), verificação de intervalo (1 <= n <= len(nomes)) e checagem ativa[n - 1] == True entre alterar() e excluir(), além de entradas vazias (""), valores <= 0 ou lotes mistos com dados inválidos que exigiam retorno seguro sem quebrar o programa.
+5. **Decisão de ajuste + fonte:** Consolidar regras de validação consistentes, manter retornos explícitos em entradas inválidas e testar cenários mínimos, máximos, vazios e lotes com defeito antes de encerrar cada função. Fonte: princípios de refatoração e qualidade de software estudados na disciplina de Engenharia de Software e documentação do Python.
+6. **Feedback recebido e o que mudei:** Na revisão por pares nº 2, o foco recaiu sobre resistência a entradas vazias, limites inválidos e lotes com defeito, refinei mensagens de erro e garantias de que registros inválidos não alterem listas válidas, mantendo a estrutura de funções acordada.
+7. **Próximo passo:** Revisar o consolidado do LOGBOOK (Ciclos 10–12, Campos 05, 06 e 07) e verificar se há qualquer pendência de teste antes do fechamento final da disciplina.
 
 ### 🧩 CAMPO 05 — Registro de Revisão por Pares (revisão nº 2)
 
 | | |
 |---|---|
-| **Autor do CRUD revisado** | _nome_ |
-| **Repositório revisado** | _link_ |
-| **Revisor** | _seu nome_ |
-| **Ciclo / data** | _Ciclo 12 · 11/11_ |
+| **Autor do CRUD revisado** | Lícia Cruz Coimbra |
+| **Repositório revisado** | https://github.com/liciaccoimbra/crud-alg-prog |
+| **Revisor** | Sthéfhany Sousa Silva |
+| **Ciclo / data** | _Ciclo 12 · 26/11_ |
 
 **5a. AVANÇO DO PROCESSO DE REVISÃO:**
 
 | ETAPA DO PROCESSO | RESPONSÁVEL | PRAZO | STATUS | DESVIO / JUSTIFICATIVA |
 |---|---|---|---|---|
-| 1. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 2. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 3. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 4. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 5. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
+| 1. Reexecutar o CRUD com casos mínimos, inválidos e entradas vazias | Revisor / Autor | 26/11 | ☐ Concluída ☒ Em andamento ☐ Com desvio | A análise do código foi realizada, mas os testes de execução ainda precisam ser registrados |
+| 2. Procurar código duplicado e blocos grandes | Revisor / Autor | 26/11 | ☒ Concluída ☐ Em andamento ☐ Com desvio | Identificadas partes repetidas na listagem resumida de reservas e na escolha da modalidade |
+| 3.  Avaliar nomes de variáveis, comentários e legibilidade | Revisor / Autor | 26/11 | ☒ Concluída ☐ Em andamento ☐ Com desvio | Os nomes são descritivos e os comentários por seção facilitam a leitura |
+| 4. Propor melhorias de refatoração | Revisor / Autor | 26/11 | ☒ Concluída ☐ Em andamento ☐ Com desvio | Recomendada a divisão das operações em funções e a criação de funções auxiliares |
+| 5.  Devolver o feedback à autora | Revisor / Autor | 26/11 | ☐ Concluída ☒ Em andamento ☐ Com desvio | Registrar a devolutiva após o envio do feedback |
 
 **5b. ANÁLISE DE INSUMOS E CRITÉRIOS DE QUALIDADE:**
 
 | RECURSO | QTDE PLANEJADA | QTDE UTILIZADA | VARIAÇÃO | JUSTIFICATIVA TÉCNICA |
 |---|---|---|---|---|
-| _…_ | _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ | _…_ |
+| Casos de teste (mínimo, inválido e vazio) | 5 | 5 | 0 | Avaliar o comportamento do CRUD com entradas válidas e problemáticas |
+| Código-fonte da autora | 1 | 1 | 0 | Analisar organização, duplicação, validação e legibilidade do código |
+| Lote de dados com defeito | 0 | 0 | 0 | Não foi disponibilizado um conjunto de dados específico para a revisão |
 
 **5c. CONTROLE DE QUALIDADE:**
-- **Critério ou norma técnica:** _…_
-- **A solução atende?** ☐ Sim ☐ Parcialmente ☐ Não
+- **Critério ou norma técnica:** Qualidade e legibilidade do código, considerando nomes claros, organização lógica, reaproveitamento de código e validação dos dados de entrada.
+- **A solução atende?** ☐ Sim ☒ Parcialmente ☐ Não
 
 **5d. GESTÃO DE RISCOS:**
-- **Risco:** _…_
-- **Estratégia de mitigação:** _…_
+- **Risco:** A refatoração pode alterar o comportamento original do CRUD ou introduzir erros nas operações de cadastro, consulta, atualização e cancelamento.
+- **Estratégia de mitigação:** Recomendar a refatoração em etapas pequenas, preservando as funcionalidades existentes e executando os mesmos casos de teste após cada alteração. Também é importante validar os dados antes de atualizar ou cadastrar uma reserva.
 
 **5e. RASTREABILIDADE DAS DECISÕES TÉCNICAS — COM VÍNCULO AO CONTEÚDO:**
 
 | DATA | DECISÃO TÉCNICA | RESP. | OBJETO DE CONHECIMENTO MOBILIZADO | FUNDAMENTAÇÃO / REFERÊNCIA |
 |---|---|---|---|---|
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
+| 26/11/2026 | Recomendei extrair a listagem resumida de reservas, repetida nas opções de atualização e cancelamento, para uma função reutilizável | Revisor | Funções e reaproveitamento de código | Tutorial do Python, seção “Definindo funções”: https://docs.python.org/pt-br/3/tutorial/controlflow.html |
+| 26/11/2026 | Recomendei criar uma função para a escolha de modalidade, repetida no cadastro e na atualização | Revisor | Legibilidade e boas práticas de código | Critério de legibilidade e organização do código adotado na revisão |
+| 26/11/2026 | Recomendei dividir o código em funções, pois as operações estão concentradas em um único laço com vários blocos condicionais | Revisor | Modularização e organização lógica | Tutorial do Python, seção “Definindo funções”: https://docs.python.org/pt-br/3/tutorial/controlflow.html |
+| 26/11/2026| Recomendei validar os campos durante a atualização, impedindo o registro de valores vazios | Revisor | Validação de entrada e condicionais | Critério de validação de dados aplicado ao CRUD |
+| 26/11/2026| Recomendei validar o formato de data e horário e verificar conflitos antes de cadastrar ou atualizar uma reserva | Revisor | Validação de entrada e regras de negócio | Documentação oficial do Python, módulo datetime: https://docs.python.org/pt-br/3/library/datetime.html |
 
 ### 🧩 CAMPO 07 — Evolução conceitual
 *AV Qualis — Grupo 3 | Individual | Quinta 26/11, 23h59*
@@ -750,30 +752,30 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 **7a. O que eu pensava no início do ciclo (com base no Campo 01 — registrar a hipótese inicial e os objetos de conhecimento que achava conhecer):**
 
-> _…_
+> No início do ciclo, eu achava que escrever um programa que "funcionava" no caminho feliz já indicava domínio de lógica e programação, e que dividir o código em funções ou lidar com erros era apenas uma camada extra no final. Eu subestimava o impacto de detalhes como escopo de variáveis, ordem de parâmetros, exclusão lógica em listas paralelas, comportamento da pilha na recursão e testes sistemáticos com entradas inválidas ou lotes com defeito.
 
 **7b. O que aprendi — conceitos, princípios ou relações técnicas que não dominava no início e que agora consigo explicar com precisão (mínimo 3 objetos de conhecimento):**
 
 | OBJETO DE CONHECIMENTO | O QUE EU NÃO DOMINAVA | O QUE APRENDI E CONSIGO DEMONSTRAR | EVIDÊNCIA (campo do Logbook onde aparece) |
 |---|---|---|---|
-| _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ |
+| Modularização e passagem de parâmetros em funções | Como separar responsabilidades sem quebrar escopo ou inverter argumentos silenciosamente | Divido o CRUD em funções coesas (cadastrar, listar, buscar, alterar, excluir, menu), controlo escopo/retornos e mantenho assinaturas consistentes | Registro do Ciclo 10 e Campo 05 / Campo 06 |
+| Recursividade e pilha de execução (call stack) | Como caso base, avanço de estado e acúmulo de frames se relacionam na execução | Defino caso base explícito, garanto convergência do passo recursivo e avalio limites de pilha versus iteração | Registro do Ciclo 11 e Campo 06 (6a–6c) |
+| Refatoração e testes de qualidade / casos de borda | Como testar além do caso padrão com entradas vazias, limites e lotes defeituosos | Refatoro duplicações e verifico cenários mínimos, máximos, vazios, exceções e lotes com defeito em crudteste.py e revisões | Registro do Ciclo 12 e Campo 05 (revisão nº 2) |
 
 **7c. Conceitos que precisei corrigir ao longo do ciclo — onde eu estava equivocado e o que o corrigiu (Fechamento Teórico, pesquisa, Peer Review, arguição):**
 
-1. **Equívoco:** _…_ — **Correção:** _…_
-   **O que corrigiu:** _…_
-2. **Equívoco:** _…_ — **Correção:** _…_
-   **O que corrigiu:** _…_
+1. **Equívoco:** Achar que remover itens diretamente com pop()/índice mutável sem controle de estado ou confiar apenas em entrada "certa" do usuário era suficiente para manter a consistência do CRUD — **Correção:** Adotar validação explícita de entrada/faixa, tratamento de exceções e exclusão lógica com ativa
+   **O que corrigiu:** Testes práticos em crudteste.py, revisão por pares (Peer Review) e fechamento teórico/prático da disciplina.
+2. **Equívoco:** Pensar que funções sem return explícito ou com parâmetros em ordem distinta falhariam sempre de forma óbvia na hora. — **Correção:** Compreender retorno implícito (None), return antecipado em falhas e bugs lógicos silenciosos quando a ordem dos argumentos não corresponde à assinatura
+   **O que corrigiu:** Depuração em VS Code, revisão de código e orientação dos ciclos de modularização e refatoração.
 
 **7d. Transferência — como este aprendizado se aplica a um contexto diferente do problema trabalhado (ao menos 1 exemplo concreto da área de formação):**
 
-> _…_
+> Em Engenharia de Software, a mesma disciplina de modularização, validação rigorosa de dados e tratamento de estados inválidos aplica-se diretamente ao protótipo da minha equipe LUME (centralização de passagem de plantão, triagem e leitos em hospitais/UPAs): separar claramente as funções de registro, consulta de disponibilidade e atualização de estado evita que uma entrada incompleta ou inválida corrompa o painel de leitos ou de triagem. Da mesma forma, na pesquisa sobre IA e acessibilidade da informação em situações de emergência na saúde, validar entradas ambíguas e definir critérios claros de parada/ fallback impede respostas enganosas quando a informação precisa ser rápida e confiável.
 
 **7e. Avaliação honesta do próprio percurso — o que ainda não domino e preciso aprofundar após este ciclo:**
 
-> _…_
+> Ainda preciso aprofundar a organização de projetos maiores em módulos/arquivos independentes com estruturas de dados mais ricas (como dicionários, classes ou persistência em arquivo/banco em vez de apenas listas paralelas), além de ganhar mais prática com testes automatizados estruturados e escolha mais ágil entre recursão e iteração em problemas mais complexos.
 
 ---
 
