@@ -546,13 +546,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 09 — 21/10
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Completar o CRUD, permitindo atualizar e excluir uma atividade escolhida pelo número sem quebrar as listas nem desalinhar os dados.
+2. **O que implementei (commits / arquivos / links):** Opções 4 (editar) e 5 (excluir) do menu, com validação do número (`n >= 1 and n <= len(nomes)`), verificação de que a atividade não foi excluída (`ativa[n - 1] == True`) e confirmação "Sim/Não" antes de excluir. Arquivo crud_strava_simples.py, repositório stheeszf/crud, commit 11a2ec0
+3. **Objeto(s) de conhecimento mobilizado(s):** Listas (acesso e atribuição por índice), condicionais aninhadas, operadores lógicos e variável booleana de controle.
+4. **Desvio ou erro encontrado + causa técnica:** Atualizar ou excluir uma atividade inexistente geraria `IndexError`, por isso valido o número antes de usar `n - 1` como índice. Remover itens das listas durante a repetição faria itens serem pulados, porque o tamanho da lista muda e a exclusão lógica evita isso, já que as listas não encolhem.
+5. **Decisão de ajuste + fonte:** Excluir marcando `ativa[n - 1] = False`, em vez de remover os itens, para manter as quatro listas alinhadas. Fonte Tutorial do Python, capítulo "Estruturas de Dados" (https://docs.python.org/pt-br/3/tutorial/datastructures.html).
+6. **Feedback recebido e o que mudei:** Não recebi feedback neste ciclo.
+7. **Próximo passo:** Dividir o código em funções.
 
 ### 🧩 CAMPO 05 — Registro de Revisão por Pares
 *Adaptação do **Logbook do Time** (Apêndice C) para o CRUD individual. Documento atualizado pelo **revisor**. Cada decisão técnica relevante deve ter associado o objeto de conhecimento correspondente.*
@@ -565,47 +565,48 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 | | |
 |---|---|
-| **Autor do CRUD revisado** | _nome_ |
-| **Repositório revisado** | _link_ |
-| **Revisor** | _seu nome_ |
+| **Autor do CRUD revisado** | Lícia Cruz Coimbra |
+| **Repositório revisado** | https://github.com/liciaccoimbra/crud-alg-prog |
+| **Revisor** | Sthéfhany Sousa Silva |
 | **Unidade curricular / Semestre** | Algoritmos e Programação · 2026.2 |
-| **Ciclo / data** | _Ciclo 09 · 21/10_ |
+| **Ciclo / data** | Ciclo 09 · 21/10/2026 (revisão registrada em 26/11/2026) |
+
 
 **5a. AVANÇO DO PROCESSO DE REVISÃO — análise técnica de cada etapa:**
 
 | ETAPA DO PROCESSO | RESPONSÁVEL | PRAZO | STATUS | DESVIO / JUSTIFICATIVA |
 |---|---|---|---|---|
-| 1. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 2. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 3. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 4. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 5. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
+| 1. Executar o CRUD de agendamento de quadras | Revisor / Autor | 26/11 | ☒  Concluída ☐ Em andamento ☐ Com desvio | A revisão foi realizada após o prazo previsto para o ciclo, sendo registrada com a data real de execução. |
+| 2. Testar cadastro, consulta, atualização e cancelamento com casos válidos e inválidos | Revisor / Autor | 26/11 | ☐ Concluída ☒ Em andamento ☐ Com desvio | Os resultados dos testes precisam ser registrados individualmente, incluindo os comportamentos observados para entradas válidas e inválidas. |
+| 3. Ler o código e identificar as decisões técnicas | Revisor / Autor | 26/11 | ☒ Concluída ☐ Em andamento ☐ Com desvio | A análise do código permitiu identificar decisões relacionadas à estrutura de dados, comparação de identificadores, validação e cancelamento de reservas. |
+| 4. Registrar achados e como reproduzi-los | Revisor / Autor | 26/11 | ☒ Concluída ☐ Em andamento ☐ Com desvio | Foram identificados pontos para investigação, como a validação dos campos na atualização e a verificação de conflitos de horário. A reprodução dos comportamentos deve ser documentada com os resultados dos testes. |
+| 5. Devolver o feedback à autora | Revisor / Autor | 26/11 | ☐ Concluída ☒ Em andamento ☐ Com desvio | O feedback será finalizado após a consolidação dos resultados dos testes e encaminhado à autora para análise e possíveis correções. |
 
 **5b. ANÁLISE DE INSUMOS E CRITÉRIOS DE QUALIDADE:**
 
 | RECURSO | QTDE PLANEJADA | QTDE UTILIZADA | VARIAÇÃO | JUSTIFICATIVA TÉCNICA |
 |---|---|---|---|---|
-| _…_ | _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ | _…_ |
+| Casos de teste: reserva conflitante, campo vazio na atualização, data sem formato, cancelamento e ID com espaço | 5 | A confirmar | A confirmar | Os casos foram definidos para avaliar as operações do CRUD e verificar o comportamento do sistema diante de entradas inválidas e possíveis conflitos de agendamento. |
+| Código fonte da autora | 1 conjunto de código-fonte | 1 conjunto de código-fonte | 0 | O código foi utilizado para compreender a estrutura, a lógica de funcionamento e as decisões técnicas implementadas. |
+| Ambiente de desenvolvimento / execução do CRUD | 1 | 1 | 0 | Utilizado para executar o programa e verificar seu comportamento durante a revisão. |
 
 **5c. CONTROLE DE QUALIDADE:**
-- **Critério ou norma técnica:** _…_
-- **A solução atende?** ☐ Sim ☐ Parcialmente ☐ Não
+- **Critério ou norma técnica:** funcionamento das operações de cadastrar, consultar, atualizar e cancelar reservas, com validação consistente das entradas e verificação das regras de negócio do sistema de agendamento de quadras.
+- **A solução atende?** ☐ Sim ☒ Parcialmente ☐ Não
 
 **5d. GESTÃO DE RISCOS:**
-- **Risco:** _…_
-- **Estratégia de mitigação:** _…_
+- **Risco:** identificar Incorretamente o funcionamento de uma operação do CRUD por não testar todas as situações possíveis.
+- **Estratégia de mitigação:** Executar testes de cadastro, consulta, atualização e cancelamento, utilizando entradas válidas e inválidas, e registrar os resultados observados.
 
 **5e. RASTREABILIDADE DAS DECISÕES TÉCNICAS — COM VÍNCULO AO CONTEÚDO:**
 
 | DATA | DECISÃO TÉCNICA | RESP. | OBJETO DE CONHECIMENTO MOBILIZADO | FUNDAMENTAÇÃO / REFERÊNCIA |
 |---|---|---|---|---|
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
+| 26/11/2026 | Considerei que a remoção de uma reserva não provoca o problema de pular elementos neste fluxo, pois o break encerra a repetição após o remove. | Revisor | Estrutura de repetição for, comando break e manipulação de listas. | A análise considera o funcionamento das estruturas de repetição e dos métodos de listas. Documentação oficial: Estruturas de dados https://docs.python.org/pt-br/3/tutorial/datastructures.html |
+| 26/11/2026 | Identifiquei a necessidade de verificar se o sistema impede reservas com a mesma modalidade, data e horário.| Revisor | Condicionais e Operadores Lógicos. | A regra de negócio pode ser verificada por meio de condições que comparam os dados das reservas. Documentação oficial: Estruturas de controle. https://docs.python.org/pt-br/3/tutorial/controlflow.html |
+| 26/11/2026 | Observei a necessidade de manter a validação dos campos consistente entre o cadastro e a atualização das reservas. | Revisor | Validação de entrada e estruturas condicionais. | A validação permite verificar se os dados informados atendem às condições necessárias antes de serem armazenados. |
+| 26/11/2026 | Considerei adequada a comparação do identificador como texto (str(id) == id_busca), pois permite comparar o ID com a entrada digitada pelo usuário. | Revisor | Tipos de dados e coversão de tipos. | A conversão para string permite comparar valores representados como texto. Documentação  oficial: Tipos embutidos. https://docs.python.org/pt-br/3/library/stdtypes.html |
+| 26/11/2026 | Considerei adequada a utilização de uma lista de dicionários para armazenar as reservas, pois permite organizar os dados de cada agendamento. | Revisor | Listas e dicionários. | Listas permitem armazenar vários registros, enquanto dicionários organizam os dados por chave e valor. Documentação oficial: Estruturas de dados. https://docs.python.org/pt-br/3/tutorial/datastructures.html |
 
 > **IMPORTANTE:** Decisão registrada sem objeto de conhecimento associado e sem referência é considerada **não rastreável** e não conta para a avaliação formativa. O vínculo entre processo e conteúdo é obrigatório em todas as decisões relevantes.
 
